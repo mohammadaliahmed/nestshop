@@ -45,6 +45,7 @@ model Product {
   updatedAt   DateTime    @updatedAt
   OrderItem   OrderItem[]
   images      Images[]
+  Cart        Cart[]
 }
 
 model Images {
@@ -75,6 +76,7 @@ model Cart {
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
   customer   Customer @relation(fields: [customerId], references: [id])
+  product    Product  @relation(fields: [productId], references: [id])
 }
 
 enum role {
